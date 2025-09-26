@@ -199,56 +199,9 @@
         &copy; 2024 Granat Wedding Planning. All rights reserved.
     </footer>
     <script>
-        function showPage(page) {
-            document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
-            document.querySelectorAll('nav a').forEach(a => {
-                if (a.textContent.replace(/\s/g, '').toLowerCase() === page) a.classList.add('active');
-            });
-            // Hide all main pages and restaurant subpages
-            ['house', 'gallery', 'restaurants', 'about', 'contact', 'restaurant-elegant', 'restaurant-granathall'].forEach(id => {
-                var el = document.getElementById(id);
-                if (el) el.style.display = 'none';
-            });
-            // Show the selected page
-            if (document.getElementById(page)) {
-                document.getElementById(page).style.display = '';
-            }
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
 
-        function showRestaurantSubpage(subpage) {
-            // Hide all main pages and restaurant subpages
-            ['house', 'gallery', 'restaurants', 'about', 'contact', 'restaurant-elegant', 'restaurant-granathall'].forEach(id => {
-                var el = document.getElementById(id);
-                if (el) el.style.display = 'none';
-            });
-            // Show the selected restaurant subpage
-            document.getElementById('restaurant-' + subpage).style.display = '';
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        // Optional: handle image preview for uploads (client-side only)
-        document.addEventListener('DOMContentLoaded', function () {
-            document.querySelectorAll('.upload-form input[type="file"]').forEach(function (input) {
-                input.addEventListener('change', function (e) {
-                    var galleryId = this.closest('section').querySelector('.gallery').id;
-                    var gallery = document.getElementById(galleryId);
-                    gallery.innerHTML = '';
-                    Array.from(this.files).forEach(function (file) {
-                        var reader = new FileReader();
-                        reader.onload = function (ev) {
-                            var img = document.createElement('img');
-                            img.src = ev.target.result;
-                            img.style.maxWidth = '180px';
-                            img.style.margin = '0.5rem';
-                            gallery.appendChild(img);
-                        };
-                        reader.readAsDataURL(file);
-                    });
-                });
-            });
-        });
     </script>
 </body>
+
 
 </html>
